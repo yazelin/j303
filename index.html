@@ -120,7 +120,7 @@
 
     .courses-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr)); gap:26px; margin-top:0; }
     .cat-block{ margin-top:2.9rem; }
-    .cat-h{ font-family:'Noto Serif TC',serif; font-weight:500; font-size:1.06rem; letter-spacing:.06em; color:#e9cba2; margin:0 0 1.1rem; padding-bottom:.55rem; border-bottom:1px solid rgba(207,68,56,.2); }
+    .cat-h{ font-family:'Noto Serif TC',serif; font-weight:500; font-size:1.06rem; letter-spacing:.06em; color:#cf4438; margin:0 0 1.1rem; padding-bottom:.55rem; border-bottom:1px solid rgba(207,68,56,.2); }
     .soon-tag{ display:inline-block; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:#d6a45a; border:1px solid rgba(214,164,90,.5); padding:3px 11px; border-radius:999px; margin-bottom:14px; }
     .card--soon .bd{ padding-top:24px; }
     body[data-theme="light"] .cat-h{ color:#234e70; border-bottom-color:rgba(34,78,112,.22); }
@@ -168,7 +168,7 @@
     body[data-theme="light"] .sub-ok{ color:#234e70; }
     .foot{ max-width:1080px; margin:0 auto; padding:60px 28px 70px; border-top:1px solid rgba(255,255,255,.07);
       font-family:'Space Grotesk',ui-monospace,monospace; font-size:.78rem; letter-spacing:.06em; color:rgba(206,196,180,.72); line-height:2; }
-    .hl{ color:#e0584c; font-weight:600; }
+    .hl{ color:#d9ab57; font-weight:600; }
     .reveal{ opacity:0; transform:translateY(30px); transition:opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
     .reveal.in{ opacity:1; transform:none; }
     @media(max-width:640px){ .sec{ padding:64px 20px; } }
@@ -209,7 +209,7 @@
     body[data-theme="light"] .prod .row{ border-color:rgba(0,0,0,.1); }
     body[data-theme="light"] .foot{ color:rgba(40,60,65,.7); border-color:rgba(0,0,0,.1); }
     body[data-theme="light"] .foot a{ color:#225378 !important; }
-    body[data-theme="light"] .hl{ color:#225378; text-shadow:none; }
+    body[data-theme="light"] .hl{ color:#2f8c79; text-shadow:none; }
     body[data-theme="light"] .scrollcue{ color:rgba(30,46,64,.5); }
     body[data-theme="light"] .sub .cta{ background:#234e70; color:#eef4f9; }
 
@@ -258,7 +258,7 @@ window.__windMul = 0;
   const ctx    = canvas.getContext('2d');
   const CHARS  = ['Y','A','Z','E','L','I','N','0','1','/','·'];
   const CELL   = 24;
-  const CHAR_COLOR = (a) => (THEME()==='light') ? `rgba(40,44,52,${a})` : `rgba(224,142,108,${a})`;
+  const CHAR_COLOR = (a) => (THEME()==='light') ? `rgba(40,44,52,${a})` : `rgba(222,168,110,${a})`;
   let cols, rows, grid = [];
   function resize() {
     canvas.width = innerWidth; canvas.height = innerHeight;
@@ -296,7 +296,7 @@ window.__windMul = 0;
   const light=()=> (document.body.dataset.theme==='light');
   let t=0;
   function frame(){ t+=0.016; x.clearRect(0,0,W,H); x.globalCompositeOperation='lighter';
-    const col=light()?'60,40,30':'232,150,98';
+    const col=light()?'60,40,30':'226,178,108';
     for(const p of P){ p.ph+=0.012; p.vx+=Math.sin(p.y*0.004+t*0.3)*0.003*DPR; p.x+=p.vx; p.y+=p.vy; p.life++;
       if(p.life>p.max||p.y<-12){ Object.assign(p,spawn()); p.y=H+12; continue; }
       const fade=Math.min(1,p.life/45)*Math.max(0,1-p.life/p.max)*(0.45+0.55*Math.sin(p.ph));
@@ -403,11 +403,12 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
   function genColor(){
     if (THEME()==='light'){ const k=0.36, j=Math.random()*0.04; return { r:0.97*k, g:(0.93-j)*k, b:(0.80-j)*k }; } // 暖白(低藍) -> invert 成涼涼藍墨浪花
     // 深色「朱墨光譜」：朱紅為主軸，朱橘過渡，琥珀餘燼點綴，偶爾深胭脂火花
-    const r=Math.random(); let h, s=0.80;
-    if      (r<0.56) { h=0.015+Math.random()*0.025; s=0.80; } // 朱紅（主調）
-    else if (r<0.80) { h=0.045+Math.random()*0.03;  s=0.78; } // 朱橘
-    else if (r<0.93) { h=0.085+Math.random()*0.04;  s=0.70; } // 琥珀餘燼
-    else            { h=0.985+Math.random()*0.02;   s=0.82; } // 深胭脂火花
+    const r=Math.random(); let h, s=0.78;
+    if      (r<0.42) { h=0.015+Math.random()*0.02;  s=0.78; } // 朱紅（主調）
+    else if (r<0.64) { h=0.05+Math.random()*0.03;   s=0.74; } // 朱橘
+    else if (r<0.86) { h=0.10+Math.random()*0.035;  s=0.66; } // 琥珀金（加重）
+    else if (r<0.95) { h=0.125+Math.random()*0.02;  s=0.52; } // 香檳金微光
+    else            { h=0.98+Math.random()*0.02;    s=0.82; } // 深胭脂火花
     const c=hsv((h%1+1)%1, s, 1); const k=0.30+Math.random()*0.08; return {r:c.r*k,g:c.g*k,b:c.b*k};
   }
   const ptr={x:0,y:0,px:0,py:0,dx:0,dy:0,moved:false,color:genColor()};
@@ -502,9 +503,8 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
   }
   function nameColor(){
     if(THEME()==='light') return {r:0.95,g:0.91,b:0.76};   // 水墨：暖白(低藍) -> invert 成深暗藍墨名字
-    const r=Math.random(); let h;
-    if(r<0.6) h=0.02+Math.random()*0.03; else if(r<0.88) h=0.05+Math.random()*0.025; else h=0.0+Math.random()*0.015;
-    return hsv(h,0.60,1); }   // 深色：朱砂明亮通透，確保好讀
+    const w=0.90+Math.random()*0.05;
+    return { r:w, g:w*0.94, b:w*0.82 }; }   // 深色：香檳金白墨（黑香精：白中帶一點金，素雅不搶）
   let nameCol=nameColor(), nameColT=0;
 
   function bloom(){
