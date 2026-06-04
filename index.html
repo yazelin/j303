@@ -571,28 +571,36 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
   </section>
 
   <section class="sec">
-    <div class="sec-label reveal">Builds · 我做的東西</div>
-    <h2 class="sec-h reveal">跟我一起做 AI 應用</h2>
-    <p class="about-body reveal">這些都是我自己做出來、實際在用的東西。程式碼公開、做法寫成手冊，<span class="hl">全部免費</span>，直接拿去改、拿去用。想要手冊就留個 Email，我寄給你。</p>
+    <div class="sec-label reveal">Workshops · 實作營</div>
+    <h2 class="sec-h reveal">AI 應用實作營</h2>
+    <p class="about-body reveal">我把做過、上線過的 AI 應用整理成「實作營」，按主題分成幾個系列。每個模組都分兩段——<span class="hl">Part 1 從零手刻、看懂底層</span>，<span class="hl">Part 2 換上真工具或框架、拿生產力</span>。程式碼公開、做法寫成手冊，<span class="hl">全部免費</span>，留個 Email 我把手冊寄給你。</p>
     <div id="coursesRoot"></div>
     <script>
     (function(){
-      const C=[
-        {cat:'biz', repo:'industrial-ai-dashboard-starter', title:'工業 AI Dashboard', en:'Industrial AI Dashboard',
-         desc:'機台停沒停、搬運車在哪、今天做了多少，<span class="hl">一個畫面即時看到</span>。工廠數位化，從這塊看板開始。'},
-        {cat:'biz', repo:'company-ai-assistant-template', title:'企業內部 AI 助理', en:'Company AI Assistant',
-         desc:'把公司文件變成<span class="hl">隨問隨答的 AI</span>。員工不用翻資料、不用一直問前輩，問一句就有答案。'},
-        {cat:'bot', repo:'linebot-ai-starter', title:'LINE Bot AI', en:'LINE Bot AI Starter',
-         desc:'客人傳 LINE，AI 即時回、<span class="hl">24 小時不用真人顧</span>。常見問題自動處理，生意接進 LINE。'},
-        {cat:'bot', repo:'telegram-ai-agent-starter', title:'Telegram AI Agent', en:'Telegram AI Agent',
-         desc:'一個會自己判斷、<span class="hl">自己把整件事辦完</span>的 AI。不只回答，是主動把任務做到底，進階 agent 從這裡入門。'},
-        {cat:'adv', repo:'mcp-server-starter', title:'MCP Server', en:'MCP Server Starter',
-         desc:'讓 AI 不只會聊天，還能<span class="hl">動手查資料、改檔案</span>。要做出真的會幹活的 AI 助理，這是關鍵一步。'},
-      ];
-      const CATS=[
-        {key:'biz', label:'公司、工廠都能用'},
-        {key:'bot', label:'Bot Agent'},
-        {key:'adv', label:'讓 AI 會用工具'},
+      const SERIES=[
+        {name:'系列一 · 基礎：給 AI 加能力', tagline:'讓 AI 會用工具、學新技能的底層', modules:[
+          {repo:'mcp-server-starter', title:'MCP Server', en:'Module 1 · Tools',
+           desc:'Part 1 從零<span class="hl">手刻 stdio JSON-RPC</span>，看懂 AI 怎麼發現、呼叫工具、拿回結果 → Part 2 換 <span class="hl">FastMCP</span>，同樣的工具少寫一大截。',
+           ref:{url:'https://github.com/yazelin/erpnext-mcp', label:'erpnext-mcp 真實 ERP MCP'}},
+          {soon:true, title:'Agent Skills', en:'Module 2 · 籌備中',
+           desc:'幫 AI 加「技能」的另一條路：把重複又要精準的活打包成<span class="hl">可重用、會自動觸發的 Skill</span>，精確的部分交給腳本。',
+           ref:{url:'https://github.com/yazelin/nanobanana-pro', label:'nanobanana-pro skill'}},
+        ]},
+        {name:'系列二 · 對話機器人', tagline:'接聊天平台，做成會自己辦事的 agent', modules:[
+          {repo:'linebot-ai-starter', title:'LINE Bot AI', en:'Module 1 · Messaging',
+           desc:'Part 1 <span class="hl">手刻簽章驗證、事件解析、Reply API</span> → Part 2 換<span class="hl">官方 line-bot-sdk</span>，同一份 bot 邏輯共用。',
+           ref:{url:'https://github.com/yazelin/jaba-ai', label:'jaba-ai 群組點餐 bot'}},
+          {repo:'telegram-ai-agent-starter', title:'Telegram AI Agent', en:'Module 2 · Agent',
+           desc:'Part 1 <span class="hl">手刻 tool-calling 迴圈</span>（自己組 messages、跑工具、接回結果）→ Part 2 換 <span class="hl">PydanticAI</span>，工具一個 decorator 就好。',
+           ref:{url:'https://github.com/yazelin/telegram-gemini-bot', label:'telegram-gemini-bot'}},
+        ]},
+        {name:'系列三 · 企業與工廠', tagline:'把 AI 裝進公司文件與工廠產線', modules:[
+          {repo:'company-ai-assistant-template', title:'企業 AI 助理', en:'Module 1 · Retrieval',
+           desc:'Part 1 <span class="hl">關鍵字計次</span>檢索（換句話說就找不到）→ Part 2 換 <span class="hl">語意檢索</span>（fastembed 向量），同樣的介面與回答層。',
+           ref:{url:'https://github.com/yazelin/ching-tech-os', label:'ching-tech-os 企業 OS'}},
+          {repo:'industrial-ai-dashboard-starter', title:'工業 AI Dashboard', en:'Module 2 · Real World',
+           desc:'Part 1 <span class="hl">模擬資料</span>的玩具看板 + 樣板摘要 → Part 2 接<span class="hl">真實 MQTT 設備資料</span> + <span class="hl">LLM 班報</span>，前端與 API 一行都不用改。'},
+        ]},
       ];
       function card(c){
         if(c.soon){
@@ -600,7 +608,7 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
             +'<div class="soon-tag">籌備中</div>'
             +'<h3>'+c.title+'</h3><div class="en">'+c.en+'</div>'
             +'<p>'+c.desc+'</p>'
-            +'<div class="lk">'+(c.link?'<a class="ghost" href="'+c.link+'" target="_blank" rel="noopener">了解 WebMCP →</a>':'')+'</div>'
+            +'<div class="lk">'+(c.ref?'<a class="ghost" href="'+c.ref.url+'" target="_blank" rel="noopener">看範例：'+c.ref.label+' →</a>':'')+'</div>'
             +'</div></article>';
         }
         const b='https://yazelin.github.io/'+c.repo;
@@ -613,56 +621,18 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
           +'<a href="'+b+'/tutorial.html">看做法 →</a>'
           +'<a class="ghost" href="https://github.com/yazelin/'+c.repo+'">GitHub 模板</a>'
           +'<a class="ghost" href="'+b+'/#waitlist">下載手冊</a>'
+          +(c.ref?'<a class="ghost" href="'+c.ref.url+'" target="_blank" rel="noopener">真實案例：'+c.ref.label+' →</a>':'')
           +'</div></div></article>';
       }
       const root=document.getElementById('coursesRoot');
-      CATS.forEach(function(cat){
-        const items=C.filter(function(c){return c.cat===cat.key;});
-        if(!items.length) return;
-        const block=document.createElement('div'); block.className='cat-block';
-        block.innerHTML='<div class="cat-h reveal">'+cat.label+'</div><div class="courses-grid">'+items.map(card).join('')+'</div>';
-        root.appendChild(block);
-      });
+      root.innerHTML=SERIES.map(function(s){
+        return '<div class="cat-block">'
+          +'<div class="cat-h reveal">'+s.name+'<span style="font-weight:300;letter-spacing:.02em;opacity:.72">　·　'+s.tagline+'</span></div>'
+          +'<div class="courses-grid">'+s.modules.map(card).join('')+'</div>'
+          +'</div>';
+      }).join('');
     })();
     </script>
-  </section>
-
-  <section class="sec">
-    <div class="sec-label reveal">Learning Path · 課程地圖</div>
-    <h2 class="sec-h reveal">5 個範本，一條學習線</h2>
-    <p class="about-body reveal">上面那 5 個不是各自獨立的範本——它們是一條學習線。每一個都分兩段：<span class="hl">Part 1 從零手刻、看懂底層</span>，<span class="hl">Part 2 換上真工具或框架、拿生產力</span>。一路走完，你會很清楚每個真工具替你做了什麼、又沒替你做什麼。每張卡都附一堂「對照課」，把兩種寫法擺在一起看。</p>
-    <div class="courses-grid">
-      <article class="card reveal"><div class="bd">
-        <div class="en">STEP 1 · Protocol</div>
-        <h3>MCP Server</h3>
-        <p>Part 1 從零<span class="hl">手刻 stdio JSON-RPC</span>，看懂 AI 怎麼發現、呼叫工具、拿回結果 → Part 2 換 <span class="hl">FastMCP</span>，同樣的工具少寫一大截。<br>學到：協定樣板可以自動化，但安全邊界永遠是你自己寫的。</p>
-        <div class="lk"><a class="ghost" href="https://yazelin.github.io/mcp-server-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
-      </div></article>
-      <article class="card reveal"><div class="bd">
-        <div class="en">STEP 2 · Messaging</div>
-        <h3>LINE Bot AI</h3>
-        <p>Part 1 <span class="hl">手刻簽章驗證、事件解析、Reply API</span> → Part 2 換<span class="hl">官方 line-bot-sdk</span>，同一份 bot 邏輯共用。<br>學到：框架幫你做掉協定樣板，你的業務邏輯還是你自己的。</p>
-        <div class="lk"><a class="ghost" href="https://yazelin.github.io/linebot-ai-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
-      </div></article>
-      <article class="card reveal"><div class="bd">
-        <div class="en">STEP 3 · Agent</div>
-        <h3>Telegram AI Agent</h3>
-        <p>Part 1 <span class="hl">手刻 tool-calling 迴圈</span>（自己組 messages、跑工具、接回結果）→ Part 2 換 <span class="hl">PydanticAI</span>，工具一個 decorator 就好。<br>學到：框架擁有迴圈與 schema，你專注在工具本身。</p>
-        <div class="lk"><a class="ghost" href="https://yazelin.github.io/telegram-ai-agent-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
-      </div></article>
-      <article class="card reveal"><div class="bd">
-        <div class="en">STEP 4 · Retrieval</div>
-        <h3>企業 AI 助理</h3>
-        <p>Part 1 <span class="hl">關鍵字計次</span>檢索（換句話說就找不到）→ Part 2 換 <span class="hl">語意檢索</span>（fastembed 向量），同樣的介面、同樣的回答層。<br>學到：升級換掉的是「怎麼比對」，不是你的資料或回答邏輯。</p>
-        <div class="lk"><a class="ghost" href="https://yazelin.github.io/company-ai-assistant-template/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
-      </div></article>
-      <article class="card reveal"><div class="bd">
-        <div class="en">STEP 5 · Real World</div>
-        <h3>工業 AI Dashboard</h3>
-        <p>Part 1 <span class="hl">模擬資料</span>的玩具看板 + 樣板摘要 → Part 2 接<span class="hl">真實 MQTT 設備資料</span> + <span class="hl">LLM 班報</span>，前端與 API 一行都不用改。<br>學到：資料源可抽換、摘要從死板模板到會講人話。</p>
-        <div class="lk"><a class="ghost" href="https://yazelin.github.io/industrial-ai-dashboard-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
-      </div></article>
-    </div>
     <p class="about-body reveal">共同心法一句話：<span class="hl">先從零看懂底層，再用真工具放大</span>。手刻過，你才知道框架在替你省什麼；也才知道哪些事——像安全邊界、業務邏輯——框架永遠不會替你扛。</p>
   </section>
 
