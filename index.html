@@ -628,6 +628,45 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
   </section>
 
   <section class="sec">
+    <div class="sec-label reveal">Learning Path · 課程地圖</div>
+    <h2 class="sec-h reveal">5 個範本，一條學習線</h2>
+    <p class="about-body reveal">上面那 5 個不是各自獨立的範本——它們是一條學習線。每一個都分兩段：<span class="hl">Part 1 從零手刻、看懂底層</span>，<span class="hl">Part 2 換上真工具或框架、拿生產力</span>。一路走完，你會很清楚每個真工具替你做了什麼、又沒替你做什麼。每張卡都附一堂「對照課」，把兩種寫法擺在一起看。</p>
+    <div class="courses-grid">
+      <article class="card reveal"><div class="bd">
+        <div class="en">STEP 1 · Protocol</div>
+        <h3>MCP Server</h3>
+        <p>Part 1 從零<span class="hl">手刻 stdio JSON-RPC</span>，看懂 AI 怎麼發現、呼叫工具、拿回結果 → Part 2 換 <span class="hl">FastMCP</span>，同樣的工具少寫一大截。<br>學到：協定樣板可以自動化，但安全邊界永遠是你自己寫的。</p>
+        <div class="lk"><a class="ghost" href="https://yazelin.github.io/mcp-server-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
+      </div></article>
+      <article class="card reveal"><div class="bd">
+        <div class="en">STEP 2 · Messaging</div>
+        <h3>LINE Bot AI</h3>
+        <p>Part 1 <span class="hl">手刻簽章驗證、事件解析、Reply API</span> → Part 2 換<span class="hl">官方 line-bot-sdk</span>，同一份 bot 邏輯共用。<br>學到：框架幫你做掉協定樣板，你的業務邏輯還是你自己的。</p>
+        <div class="lk"><a class="ghost" href="https://yazelin.github.io/linebot-ai-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
+      </div></article>
+      <article class="card reveal"><div class="bd">
+        <div class="en">STEP 3 · Agent</div>
+        <h3>Telegram AI Agent</h3>
+        <p>Part 1 <span class="hl">手刻 tool-calling 迴圈</span>（自己組 messages、跑工具、接回結果）→ Part 2 換 <span class="hl">PydanticAI</span>，工具一個 decorator 就好。<br>學到：框架擁有迴圈與 schema，你專注在工具本身。</p>
+        <div class="lk"><a class="ghost" href="https://yazelin.github.io/telegram-ai-agent-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
+      </div></article>
+      <article class="card reveal"><div class="bd">
+        <div class="en">STEP 4 · Retrieval</div>
+        <h3>企業 AI 助理</h3>
+        <p>Part 1 <span class="hl">關鍵字計次</span>檢索（換句話說就找不到）→ Part 2 換 <span class="hl">語意檢索</span>（fastembed 向量），同樣的介面、同樣的回答層。<br>學到：升級換掉的是「怎麼比對」，不是你的資料或回答邏輯。</p>
+        <div class="lk"><a class="ghost" href="https://yazelin.github.io/company-ai-assistant-template/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
+      </div></article>
+      <article class="card reveal"><div class="bd">
+        <div class="en">STEP 5 · Real World</div>
+        <h3>工業 AI Dashboard</h3>
+        <p>Part 1 <span class="hl">模擬資料</span>的玩具看板 + 樣板摘要 → Part 2 接<span class="hl">真實 MQTT 設備資料</span> + <span class="hl">LLM 班報</span>，前端與 API 一行都不用改。<br>學到：資料源可抽換、摘要從死板模板到會講人話。</p>
+        <div class="lk"><a class="ghost" href="https://yazelin.github.io/industrial-ai-dashboard-starter/tutorial.html" target="_blank" rel="noopener">看對照課 →</a></div>
+      </div></article>
+    </div>
+    <p class="about-body reveal">共同心法一句話：<span class="hl">先從零看懂底層，再用真工具放大</span>。手刻過，你才知道框架在替你省什麼；也才知道哪些事——像安全邊界、業務邏輯——框架永遠不會替你扛。</p>
+  </section>
+
+  <section class="sec">
     <div class="sec-label reveal">Projects · 我做的專案</div>
     <h2 class="sec-h reveal">我也這樣做自己的專案</h2>
     <div class="prod">
