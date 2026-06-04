@@ -605,9 +605,9 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
           {repo:'gemini-image-starter', title:'AI 生圖入門', en:'Module 1 · Image',
            desc:'Part 1 <span class="hl">一句話 prompt</span>（每次都不一樣）→ Part 2 <span class="hl">結構化 prompt</span>（主體/風格/光線/構圖/負面詞，可控、可重現），用最小 Gemini client。',
            ref:{url:'https://github.com/yazelin/catime', label:'catime 每小時生圖'}},
-          {soon:true, title:'LINE 貼圖製造機', en:'Module 2 · 籌備中',
-           desc:'把生圖做成產品：1 張角色圖 → Gemini → 8 張 LINE 貼圖 → 去背 → ZIP。<span class="hl">改造成正式模組中</span>。',
-           ref:{url:'https://github.com/yazelin/line-sticker-studio', label:'line-sticker-studio（現成可看）'}},
+          {repo:'ai-sticker-starter', title:'AI 貼圖製造機', en:'Module 2 · Sticker',
+           desc:'把生圖做成產品：1 張 grid → 切圖 → <span class="hl">chroma-key 去背</span> → LINE 規格 → 打包 ZIP 上架。Part1 天真門檻去背 → Part2 正確產線。',
+           ref:{url:'https://github.com/yazelin/line-sticker-studio', label:'line-sticker-studio 生產版'}},
         ]},
       ];
       function card(c){
