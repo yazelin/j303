@@ -202,6 +202,8 @@
     .sub-form button{ flex:0 0 auto; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.84rem; letter-spacing:.1em; font-weight:600; color:#f6efe2; background:#bb352b; border:none; padding:13px 28px; border-radius:999px; cursor:pointer; white-space:nowrap; transition:filter .2s; box-shadow:0 5px 20px rgba(187,53,43,.3); }
     .sub-form button:hover{ filter:brightness(1.1); }
     .sub-ok{ max-width:460px; margin:1.9rem auto 0; text-align:center; font-family:'Noto Serif TC',serif; font-size:1.05rem; line-height:1.8; color:#e9cba2; }
+    .sub-note{ max-width:460px; margin:0.9rem auto 0; text-align:center; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.72rem; letter-spacing:.04em; line-height:1.7; color:rgba(206,196,180,.5); }
+    body[data-theme="light"] .sub-note{ color:rgba(74,84,94,.62); }
     body[data-theme="light"] .sub-form input[type=email]{ background:rgba(255,255,255,.72); border-color:rgba(34,78,112,.3); color:#1c2a36; }
     body[data-theme="light"] .sub-form input[type=email]::placeholder{ color:rgba(74,84,94,.5); }
     body[data-theme="light"] .sub-form input[type=email]:focus{ border-color:rgba(34,78,112,.75); }
@@ -696,17 +698,18 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
   <section class="sec sub" id="subscribe">
     <div class="sec-label reveal" style="text-align:center">Subscribe · 訂閱</div>
     <h2 class="sec-h reveal">好東西跟好朋友分享</h2>
-    <p class="about-body reveal" style="margin-left:auto;margin-right:auto;text-align:center">留個 Email，之後我做了新東西、寫了新做法，就可以直接分享給你。</p>
+    <p class="about-body reveal" style="margin-left:auto;margin-right:auto;text-align:center">留個 Email，我把這 8 套實作的完整手冊(含程式碼與每一步做法)整理好寄給你；之後有新範本、新做法，也會第一時間分享。</p>
     <div id="subFormWrap" class="reveal">
       <form class="sub-form" action="https://assets.mailerlite.com/jsonp/2399922/forms/189224894262675018/subscribe" method="post" target="ml_iframe" onsubmit="window.__subSub=1;">
         <input type="email" name="fields[email]" required placeholder="你的 Email" aria-label="Email" autocomplete="email">
         <input type="hidden" name="ml-submit" value="1">
         <input type="hidden" name="anticsrf" value="true">
-        <button type="submit">訂閱 →</button>
+        <button type="submit">把手冊寄給我 →</button>
       </form>
+      <p class="sub-note">大約一兩個月一封，只寄我新做出來的東西和做法，不寄垃圾信，隨時一鍵退訂。</p>
     </div>
     <iframe name="ml_iframe" title="subscribe" style="display:none" onload="if(window.__subSub){document.getElementById('subFormWrap').style.display='none';document.getElementById('subOk').style.display='block';}"></iframe>
-    <div id="subOk" class="sub-ok" style="display:none">收到了，謝謝你。如果收到一封確認信，點一下就完成訂閱。</div>
+    <div id="subOk" class="sub-ok" style="display:none">收到了，謝謝你。確認信已經寄到你的信箱(記得看一下垃圾信匣)，點開信裡的連結完成訂閱，手冊就會跟著寄給你。</div>
     <p class="sub-alt reveal">也可以追蹤我的 GitHub <a href="https://github.com/yazelin" target="_blank" rel="noopener">@yazelin</a>，我開新 repo、放新範例，都會出現在你的動態。喜歡哪個順手 Star 收藏。</p>
   </section>
 
