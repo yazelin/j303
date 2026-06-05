@@ -132,6 +132,11 @@
 
     .courses-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,460px),1fr)); gap:26px; margin-top:0; }
     .cat-block{ margin-top:2.9rem; }
+    .card .meta{ display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:9px; }
+    .card .lvl{ font-family:'Space Grotesk',ui-monospace,monospace; font-size:.62rem; font-weight:700; letter-spacing:.14em; color:#cf4438; border:1px solid rgba(207,68,56,.45); border-radius:999px; padding:3px 10px; white-space:nowrap; }
+    .card .who{ font-family:'Noto Serif TC',serif; font-size:.84rem; color:rgba(206,192,168,.78); }
+    body[data-theme="light"] .card .lvl{ color:#234e70; border-color:rgba(34,78,112,.45); }
+    body[data-theme="light"] .card .who{ color:#4a5862; }
     .cat-h{ font-family:'Noto Serif TC',serif; font-weight:500; font-size:1.06rem; letter-spacing:.06em; color:#cf4438; margin:0 0 1.1rem; padding-bottom:.55rem; border-bottom:1px solid rgba(207,68,56,.2); }
     .soon-tag{ display:inline-block; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.6rem; letter-spacing:.2em; text-transform:uppercase; color:#d6a45a; border:1px solid rgba(214,164,90,.5); padding:3px 11px; border-radius:999px; margin-bottom:14px; }
     .card--soon .bd{ padding-top:24px; }
@@ -579,33 +584,33 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
     (function(){
       const SERIES=[
         {name:'系列一 · 基礎：給 AI 加能力', tagline:'讓 AI 會用工具、學新技能的底層', modules:[
-          {repo:'mcp-server-starter', title:'MCP Server', en:'Module 1 · Tools',
+          {repo:'mcp-server-starter', title:'MCP Server', en:'Module 1 · Tools', level:'入門', who:'想讓 AI 安全用自己工具的開發者',
            desc:'Part 1 從零<span class="hl">手刻 stdio JSON-RPC</span>，看懂 AI 怎麼發現、呼叫工具、拿回結果 → Part 2 換 <span class="hl">FastMCP</span>，同樣的工具少寫一大截。',
            ref:{url:'https://github.com/yazelin/erpnext-mcp', label:'erpnext-mcp 真實 ERP MCP'}},
-          {repo:'agent-skill-starter', title:'Agent Skills', en:'Module 2 · Skills',
+          {repo:'agent-skill-starter', title:'Agent Skills', en:'Module 2 · Skills', level:'入門', who:'想把重複流程打包給 AI 的人',
            desc:'Part 1 <span class="hl">每次貼一長串 prompt</span>（不一致、要重打）→ Part 2 打包成<span class="hl">會自動觸發的 Skill</span>（SKILL.md + 腳本），精確的活交給腳本。',
            ref:{url:'https://github.com/yazelin/nanobanana-pro', label:'nanobanana-pro skill'}},
         ]},
         {name:'系列二 · 對話機器人', tagline:'接聊天平台，做成會自己辦事的 agent', modules:[
-          {repo:'linebot-ai-starter', title:'LINE Bot AI', en:'Module 1 · Messaging',
+          {repo:'linebot-ai-starter', title:'LINE Bot AI', en:'Module 1 · Messaging', level:'入門', who:'想做 LINE 客服 / 通知 bot',
            desc:'Part 1 <span class="hl">手刻簽章驗證、事件解析、Reply API</span> → Part 2 換<span class="hl">官方 line-bot-sdk</span>，同一份 bot 邏輯共用。',
            ref:{url:'https://github.com/yazelin/jaba-ai', label:'jaba-ai 群組點餐 bot'}},
-          {repo:'telegram-ai-agent-starter', title:'Telegram AI Agent', en:'Module 2 · Agent',
+          {repo:'telegram-ai-agent-starter', title:'Telegram AI Agent', en:'Module 2 · Agent', level:'中階', who:'想做會自己用工具辦事的 agent',
            desc:'Part 1 <span class="hl">手刻 tool-calling 迴圈</span>（自己組 messages、跑工具、接回結果）→ Part 2 換 <span class="hl">PydanticAI</span>，工具一個 decorator 就好。',
            ref:{url:'https://github.com/yazelin/telegram-gemini-bot', label:'telegram-gemini-bot'}},
         ]},
         {name:'系列三 · 企業與工廠', tagline:'把 AI 裝進公司文件與工廠產線', modules:[
-          {repo:'company-ai-assistant-template', title:'企業 AI 助理', en:'Module 1 · Retrieval',
+          {repo:'company-ai-assistant-template', title:'企業 AI 助理', en:'Module 1 · Retrieval', level:'中階', who:'想把公司文件變成隨問隨答',
            desc:'Part 1 <span class="hl">關鍵字計次</span>檢索（換句話說就找不到）→ Part 2 換 <span class="hl">語意檢索</span>（fastembed 向量），同樣的介面與回答層。',
            ref:{url:'https://github.com/yazelin/ching-tech-os', label:'ching-tech-os 企業 OS'}},
-          {repo:'industrial-ai-dashboard-starter', title:'工業 AI Dashboard', en:'Module 2 · Real World',
+          {repo:'industrial-ai-dashboard-starter', title:'工業 AI Dashboard', en:'Module 2 · Real World', level:'中階', who:'工廠、產線想數位化',
            desc:'Part 1 <span class="hl">模擬資料</span>的玩具看板 + 樣板摘要 → Part 2 接<span class="hl">真實 MQTT 設備資料</span> + <span class="hl">LLM 班報</span>，前端與 API 一行都不用改。'},
         ]},
         {name:'系列四 · 繪圖魔法師', tagline:'用 LLM 生圖，從一句話 prompt 到做成產品', modules:[
-          {repo:'gemini-image-starter', title:'AI 生圖入門', en:'Module 1 · Image',
+          {repo:'gemini-image-starter', title:'AI 生圖入門', en:'Module 1 · Image', level:'入門', who:'想用 AI 生圖、學 prompt 設計',
            desc:'Part 1 <span class="hl">一句話 prompt</span>（每次都不一樣）→ Part 2 <span class="hl">結構化 prompt</span>（主體/風格/光線/構圖/負面詞，可控、可重現），用最小 Gemini client。',
            ref:{url:'https://github.com/yazelin/catime', label:'catime 每小時生圖'}},
-          {repo:'ai-sticker-starter', title:'AI 貼圖製造機', en:'Module 2 · Sticker',
+          {repo:'ai-sticker-starter', title:'AI 貼圖製造機', en:'Module 2 · Sticker', level:'中階', who:'想把生圖做成 LINE 貼圖（前置：生圖入門）',
            desc:'把生圖做成產品：1 張 grid → 切圖 → <span class="hl">chroma-key 去背</span> → LINE 規格 → 打包 ZIP 上架。Part1 天真門檻去背 → Part2 正確產線。',
            ref:{url:'https://github.com/yazelin/line-sticker-studio', label:'line-sticker-studio 生產版'}},
         ]},
@@ -624,6 +629,7 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
           +'<img class="ban" src="'+b+'/assets/banner.svg" alt="'+c.title+' banner" loading="lazy">'
           +'<div class="bd">'
           +'<h3>'+c.title+'</h3><div class="en">'+c.en+'</div>'
+          +(c.level?'<div class="meta"><span class="lvl">'+c.level+'</span><span class="who">適合 '+c.who+'</span></div>':'')
           +'<p>'+c.desc+'</p>'
           +'<div class="lk">'
           +'<a href="'+b+'/tutorial.html">看做法 →</a>'
