@@ -50,7 +50,30 @@
     .tag { max-width: 540px; margin-top: 1.7rem; font-family: 'YazeKai', 'Noto Serif TC', serif; font-weight: 400;
       font-size: clamp(0.9rem, 1.6vw, 1.05rem); line-height: 2; opacity:0; animation: rise 1.1s 0.75s forwards; }
     .hint { font-family: 'Space Grotesk', ui-monospace, monospace; font-size: 0.66rem; letter-spacing: 0.34em;
-      text-transform: uppercase; margin-top: 3.2rem; padding-left: 0.34em; opacity:0; animation: rise 1.4s 1.4s forwards; }
+      text-transform: uppercase; margin-top: 2.4rem; padding-left: 0.34em; opacity:0; animation: rise 1.4s 1.4s forwards; }
+    /* hero 價值副標 + 主/次 CTA */
+    .subtag { max-width: 580px; margin-top: 1.5rem; font-family: 'Noto Serif TC', serif; font-weight: 300;
+      font-size: clamp(0.84rem, 1.35vw, 1rem); line-height: 1.95; opacity:0; animation: rise 1.1s 0.95s forwards; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:2rem;
+      pointer-events:auto; opacity:0; animation: rise 1.1s 1.15s forwards; }
+    .hero-actions a { font-family:'Space Grotesk', ui-monospace, monospace; font-size:0.8rem; letter-spacing:0.14em;
+      text-transform:uppercase; border-radius:999px; padding:0.72rem 1.45rem; text-decoration:none;
+      transition:transform .25s, filter .25s, color .25s, border-color .25s; white-space:nowrap; }
+    .hero-actions a:hover { transform:translateY(-2px); }
+    .hero-actions .pri { font-weight:500; }
+    .hero-actions .sec { border:1.5px solid; background:transparent; }
+    body[data-theme="dark"]  .subtag { color: rgba(216,202,184,0.72); }
+    body[data-theme="dark"]  .subtag .hl { color:#d9ab57; }
+    body[data-theme="dark"]  .hero-actions .pri { background:#bb352b; color:#f6efe2; box-shadow:0 5px 20px rgba(187,53,43,0.3); }
+    body[data-theme="dark"]  .hero-actions .pri:hover { filter:brightness(1.12); }
+    body[data-theme="dark"]  .hero-actions .sec { color:rgba(242,234,222,0.82); border-color:rgba(232,150,98,0.45); }
+    body[data-theme="dark"]  .hero-actions .sec:hover { color:#e2796d; border-color:rgba(232,150,98,0.8); }
+    body[data-theme="light"] .subtag { color: rgba(34,48,62,0.82); }
+    body[data-theme="light"] .subtag .hl { color:#2f8c79; }
+    body[data-theme="light"] .hero-actions .pri { background:#234e70; color:#eef4f9; box-shadow:0 4px 14px rgba(34,78,112,0.24); }
+    body[data-theme="light"] .hero-actions .pri:hover { filter:brightness(1.08); }
+    body[data-theme="light"] .hero-actions .sec { color:rgba(26,38,52,0.82); border-color:rgba(34,78,112,0.42); }
+    body[data-theme="light"] .hero-actions .sec:hover { color:#225378; border-color:rgba(34,78,112,0.7); }
     .corner { position: fixed; z-index: 20; font-family: 'Space Grotesk', ui-monospace, monospace; font-size: 0.68rem;
       letter-spacing: 0.26em; text-transform: uppercase; opacity:0; animation: rise 1s 1.1s forwards; }
     .corner.tl { top: 1.6rem; left: 1.9rem; }
@@ -196,6 +219,9 @@
       .kicker{ font-size:0.6rem; letter-spacing:0.28em; }
       .latin{ letter-spacing:0.42em; }
       .tag{ font-size:0.92rem; padding:0 10px; }
+      .subtag{ font-size:0.86rem; padding:0 6px; }
+      .hero-actions{ margin-top:1.6rem; gap:10px; }
+      .hero-actions a{ font-size:0.72rem; padding:0.62rem 1.1rem; }
       .hint{ font-size:0.58rem; letter-spacing:0.24em; }
       .sec-h{ font-size:clamp(1.7rem,7vw,2.6rem); }
       .courses-grid{ grid-template-columns:1fr; gap:20px; margin-top:0; }
@@ -244,6 +270,11 @@
     <h1 class="mark">林亞澤</h1>
     <div class="latin">YAZE&nbsp;&nbsp;LIN</div>
     <p class="tag">從工廠自動化到 AI，我只做真的能用的東西，也把做法公開分享。</p>
+    <p class="subtag"><span class="hl">免費</span> AI 實作營：MCP、LINE Bot、Agent、企業與工廠 AI、生圖 — 8 個我真的上線過的應用，做法寫成手冊，留個 Email 我寄給你。</p>
+    <div class="hero-actions">
+      <a class="pri" href="#subscribe">免費領實作手冊 →</a>
+      <a class="sec" href="#workshops">看 8 個模組 →</a>
+    </div>
     <div class="hint">移動游標攪動 · 點擊潑灑</div>
   </div>
 </div>
@@ -575,7 +606,7 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
     <p class="about-body reveal">我在 <strong>擎添工業</strong>(1984 年成立的自動化公司，做機械手臂、無人搬運車、產線整合)。下面這些，都是我在工廠和上線產品裡<span class="hl">真的跑起來過</span>的；做法我都寫下來了，你照著就能做出一樣的。更多筆記與作品:<a href="https://yazelin.github.io">yazelin.github.io</a> · GitHub <a href="https://github.com/yazelin">@yazelin</a>。</p>
   </section>
 
-  <section class="sec">
+  <section class="sec" id="workshops">
     <div class="sec-label reveal">Workshops · 實作營</div>
     <h2 class="sec-h reveal">AI 應用實作營</h2>
     <p class="about-body reveal">我把做過、上線過的 AI 應用整理成「實作營」，按主題分成幾個系列。每個模組都分兩段——<span class="hl">Part 1 從零手刻、看懂底層</span>，<span class="hl">Part 2 換上真工具或框架、拿生產力</span>。程式碼公開、做法寫成手冊，<span class="hl">全部免費</span>，留個 Email 我把手冊寄給你。</p>
@@ -661,7 +692,7 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
     </div>
   </section>
 
-  <section class="sec sub">
+  <section class="sec sub" id="subscribe">
     <div class="sec-label reveal" style="text-align:center">Subscribe · 訂閱</div>
     <h2 class="sec-h reveal">好東西跟好朋友分享</h2>
     <p class="about-body reveal" style="margin-left:auto;margin-right:auto;text-align:center">留個 Email，之後我做了新東西、寫了新做法，就可以直接分享給你。</p>
