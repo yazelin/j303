@@ -229,6 +229,9 @@
       .sec-h{ font-size:clamp(1.7rem,7vw,2.6rem); }
       .courses-grid{ grid-template-columns:1fr; gap:20px; margin-top:0; }
       .corner.tl,.corner.br{ font-size:0.6rem; letter-spacing:0.18em; }
+      .corner.br{ display:none; }                                              /* EST.2026 純裝飾，手機不佔位 */
+      .corner.tl{ animation:none; opacity:var(--heroOp,1); transition:opacity .15s linear; }  /* 捲過首屏即淡出，不壓到卡片標題 */
+      .theme{ bottom:max(1rem, env(safe-area-inset-bottom)); left:1rem; font-size:0.68rem; padding:0.5rem 1rem; }
       .scrollcue{ bottom:1.4rem; }
     }
 
