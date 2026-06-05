@@ -487,6 +487,29 @@
     body[data-theme="light"] .card h3 .tech{ color:rgba(58,82,104,.55); }
     body[data-theme="light"] .card .outcome{ color:#2f8c79; }
 
+    /* 顧問區:怎麼開始 3 步 + 第二顆低承諾鈕 + 降壓承諾 */
+    .work-steps{ max-width:680px; margin:2.6rem auto 0; }
+    .work-steps-h{ font-family:'Space Grotesk',ui-monospace,monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; text-align:center; margin-bottom:16px; }
+    .work-steps ol{ margin:0; padding-left:1.4em; }
+    .work-steps li{ font-family:'Noto Serif TC',serif; font-weight:300; font-size:1rem; line-height:1.85; margin-bottom:.5rem; }
+    .work-steps-foot{ text-align:center; margin-top:1.1rem; font-family:'Noto Serif TC',serif; font-weight:300; font-size:.92rem; }
+    .work-cta{ display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center; }
+    .work .cta.cta-2{ box-shadow:none; border:1.5px solid; background:transparent; }
+    .work .cta.cta-2:hover{ filter:none; }
+    .work-reassure{ text-align:center; margin-top:1.1rem; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.72rem; letter-spacing:.04em; line-height:1.7; }
+    body[data-theme="dark"]  .work-steps li{ color:#c7bfb0; }
+    body[data-theme="dark"]  .work-steps li strong{ color:#d9ab57; }
+    body[data-theme="dark"]  .work-steps-foot{ color:rgba(206,192,168,.72); }
+    body[data-theme="dark"]  .work .cta.cta-2{ background:transparent; box-shadow:none; color:rgba(242,234,222,.82); border-color:rgba(232,150,98,.45); }
+    body[data-theme="dark"]  .work .cta.cta-2:hover{ color:#e2796d; border-color:rgba(232,150,98,.8); }
+    body[data-theme="dark"]  .work-reassure{ color:rgba(206,192,168,.6); }
+    body[data-theme="light"] .work-steps li{ color:#41505d; }
+    body[data-theme="light"] .work-steps li strong{ color:#2f8c79; }
+    body[data-theme="light"] .work-steps-foot{ color:#41505d; }
+    body[data-theme="light"] .work .cta.cta-2{ background:transparent; box-shadow:none; color:rgba(26,38,52,.82); border-color:rgba(34,78,112,.42); }
+    body[data-theme="light"] .work .cta.cta-2:hover{ color:#225378; border-color:rgba(34,78,112,.7); }
+    body[data-theme="light"] .work-reassure{ color:rgba(58,82,104,.7); }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -931,12 +954,23 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
         <div class="svc-fit">適合 想培養自家 AI 能力、不想長期外包的團隊</div>
       </div></article>
     </div>
+    <div class="work-steps reveal">
+      <div class="work-steps-h">怎麼開始</div>
+      <ol>
+        <li><strong>聊 30 分鐘</strong>：你說現況，我直接判斷這題該不該做、值不值得。</li>
+        <li><strong>小範圍試點</strong>：挑一條線、一個流程，2–4 週做出一個你看得到的東西。</li>
+        <li><strong>確認有效再放大</strong>：複製到其他產線或部門，過程中帶你的人一起會。</li>
+      </ol>
+      <p class="work-steps-foot">不綁長約、不先收大筆顧問費——先用一個小試點證明值得，再決定要不要做大。</p>
+    </div>
     <div class="work-cta reveal">
       <a class="cta" href="mailto:yazelin@ching-tech.com?subject=AI%20導入諮詢">聊聊你的導入需求 →</a>
+      <a class="cta cta-2" href="mailto:yazelin@ching-tech.com?subject=想先聊聊%20AI%20導入(不用先準備需求)">先 15 分鐘聊聊，不用先準備 →</a>
     </div>
+    <p class="work-reassure reveal">48 小時內回信，第一次聊不收費，聊完我會直接告訴你「這題該不該做、要不要等」。</p>
     <p class="about-body reveal" style="text-align:center;font-size:.92rem;margin-top:1.1rem">或直接來信 <a href="mailto:yazelin@ching-tech.com">yazelin@ching-tech.com</a>，講你現在卡在哪。</p>
     <p class="about-body reveal work-proof">擎添工業現役工程師 · 機械手臂／AGV／產線整合實戰 · 程式碼全部公開在 <a href="https://github.com/yazelin" target="_blank" rel="noopener">GitHub @yazelin</a> · CTOS 企業平台已上線(<a href="https://ching-tech.com" target="_blank" rel="noopener">ching-tech.com</a>) · CT JINN LINE 助理(<a href="https://line.me/R/ti/p/@285fjkky" target="_blank" rel="noopener">@285fjkky</a>)</p>
-    <p class="about-body reveal" style="text-align:center;opacity:.8">還沒準備好導入？<a href="#subscribe">先留個 Email</a>，看我怎麼一步步做，準備好再找我。</p>
+    <p class="about-body reveal" style="text-align:center;opacity:.8">如果你現在還在學、手上沒有具體想解的問題——<a href="#subscribe">先留 Email 拿那 8 套手冊</a>，真的卡到再回來。已經有明確痛點的話，直接用上面那顆「先聊聊」就好。</p>
   </section>
 
   <section class="sec sub" id="subscribe">
