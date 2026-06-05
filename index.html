@@ -510,6 +510,21 @@
     body[data-theme="light"] .work .cta.cta-2:hover{ color:#225378; border-color:rgba(34,78,112,.7); }
     body[data-theme="light"] .work-reassure{ color:rgba(58,82,104,.7); }
 
+    /* PROJECTS 企業/個人視覺分層 */
+    .prod-group{ font-family:'Space Grotesk',ui-monospace,monospace; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.4rem; }
+    .live-tag{ font-family:'Space Grotesk',ui-monospace,monospace; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; font-weight:500; padding:2px 9px; border-radius:999px; border:1px solid; margin-left:12px; vertical-align:middle; }
+    .prod-wip{ max-width:1080px; margin:1.8rem auto 0; font-family:'Noto Serif TC',serif; font-weight:300; font-size:.92rem; line-height:1.85; }
+    .prod-wip .prod-group{ display:inline-block; margin-right:10px; margin-bottom:0; }
+    .prod-wip a{ text-decoration:none; border-bottom:1px solid; }
+    body[data-theme="dark"]  .prod-group{ color:rgba(206,192,168,.5); }
+    body[data-theme="dark"]  .live-tag{ color:#d9ab57; border-color:rgba(217,171,87,.4); }
+    body[data-theme="dark"]  .prod-wip{ color:rgba(206,192,168,.6); }
+    body[data-theme="dark"]  .prod-wip a{ color:#d9544a; border-bottom-color:rgba(207,68,56,.3); }
+    body[data-theme="light"] .prod-group{ color:rgba(58,82,104,.5); }
+    body[data-theme="light"] .live-tag{ color:#2f8c79; border-color:rgba(47,140,121,.4); }
+    body[data-theme="light"] .prod-wip{ color:rgba(58,82,104,.65); }
+    body[data-theme="light"] .prod-wip a{ color:#225378; border-bottom-color:rgba(34,83,120,.3); }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -925,11 +940,11 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
     <h2 class="sec-h reveal">真實世界的專案</h2>
     <p class="about-body reveal">這些不是教學 demo——有的已經上線在跑、有的已經在公司內部天天在用，是真實的使用情境，不是練習範例。</p>
     <div class="prod">
-      <div class="row reveal"><h4>CTOS</h4><p>擎添內部在用的企業 AI 工作平台:像桌面一樣的網頁介面，能查公司資料、用各行各業專屬的 AI 助手、接上 LINE，資料留在台灣。<a href="https://ching-tech.com">ching-tech.com</a> · <a href="https://ching-tech.github.io">品牌站</a></p></div>
-      <div class="row reveal"><h4>CTOS-Lite / CT JINN</h4><p>把公司的 AI 助理裝進 LINE，已上線，加好友就能直接用:<a href="https://line.me/R/ti/p/@285fjkky">@285fjkky</a></p></div>
-      <div class="row reveal"><h4>Mori Desktop</h4><p>我自己在做的個人 AI 管家(電腦桌面軟體)。架構正在跟下面的 AgentOS 整合，還在開發中:<a href="https://github.com/yazelin/mori-desktop">github.com/yazelin/mori-desktop</a></p></div>
-      <div class="row reveal"><h4>AgentOS</h4><p>讓不同 AI 工具能被統一管理的平台(開發中)。</p></div>
+      <div class="prod-group reveal">已經在企業／產線跑的</div>
+      <div class="row reveal"><h4>CTOS<span class="live-tag">已上線</span></h4><p>擎添內部在用的企業 AI 工作平台:像桌面一樣的網頁介面，能查公司資料、用各行各業專屬的 AI 助手、接上 LINE，資料留在台灣。<a href="https://ching-tech.com">ching-tech.com</a> · <a href="https://ching-tech.github.io">品牌站</a></p></div>
+      <div class="row reveal"><h4>CTOS-Lite / CT JINN<span class="live-tag">已上線</span></h4><p>把公司的 AI 助理裝進 LINE，加好友就能直接用:<a href="https://line.me/R/ti/p/@285fjkky">@285fjkky</a></p></div>
     </div>
+    <p class="prod-wip reveal"><span class="prod-group">正在打造中</span>另有個人 AI 管家 <a href="https://github.com/yazelin/mori-desktop">Mori Desktop</a>、與統一管理各家 AI 工具的 AgentOS——還在開發中，有興趣可看 GitHub。</p>
   </section>
 
   <section class="sec work" id="work">
