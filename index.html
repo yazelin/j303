@@ -455,6 +455,30 @@
       .reveal{ opacity:1 !important; transform:none !important; }
     }
 
+    /* 這給誰／不給誰 定位帶 */
+    .fit-hook{ max-width:800px; margin:0 auto 2.8rem; text-align:center; font-family:'Noto Serif TC',serif; font-weight:300; font-size:clamp(1.05rem,1.9vw,1.45rem); line-height:1.9; }
+    .fit-cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr)); gap:22px; max-width:920px; margin:0 auto; }
+    .fit-col{ border-radius:18px; padding:24px 26px; border:1px solid; }
+    .fit-h{ font-family:'Space Grotesk',ui-monospace,monospace; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; margin-bottom:14px; }
+    .fit-col ul{ margin:0; padding-left:1.05em; }
+    .fit-col li{ font-family:'Noto Serif TC',serif; font-weight:300; font-size:.97rem; line-height:1.75; margin-bottom:.55rem; }
+    .fit-foot{ max-width:760px; margin:2rem auto 0; text-align:center; font-family:'Noto Serif TC',serif; font-weight:300; font-size:.95rem; }
+    .fit-foot a{ text-decoration:none; border-bottom:1px solid; }
+    body[data-theme="dark"]  .fit-hook{ color:rgba(236,230,218,.92); }
+    body[data-theme="dark"]  .fit-col{ background:linear-gradient(165deg,rgba(255,247,235,.05),rgba(255,247,235,.012)); border-color:rgba(236,230,218,.1); }
+    body[data-theme="dark"]  .fit-col li{ color:#c7bfb0; }
+    body[data-theme="dark"]  .fit-yes{ color:#d9ab57; }
+    body[data-theme="dark"]  .fit-no{ color:rgba(206,192,168,.55); }
+    body[data-theme="dark"]  .fit-foot{ color:rgba(206,192,168,.72); }
+    body[data-theme="dark"]  .fit-foot a{ color:#d9544a; border-bottom-color:rgba(207,68,56,.35); }
+    body[data-theme="light"] .fit-hook{ color:#19293a; }
+    body[data-theme="light"] .fit-col{ background:rgba(255,255,255,.7); border-color:rgba(0,0,0,.1); }
+    body[data-theme="light"] .fit-col li{ color:#41505d; }
+    body[data-theme="light"] .fit-yes{ color:#2f8c79; }
+    body[data-theme="light"] .fit-no{ color:rgba(58,82,104,.55); }
+    body[data-theme="light"] .fit-foot{ color:#41505d; }
+    body[data-theme="light"] .fit-foot a{ color:#225378; border-bottom-color:rgba(34,83,120,.32); }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -465,13 +489,14 @@
   <canvas id="fluidCanvas"></canvas>
   <canvas id="emberCanvas"></canvas>
   <div class="scene__content">
-    <div class="kicker">Industrial Engineer · AI Builder</div>
+    <div class="kicker">Since 1984 · Factory-Floor AI</div>
     <h1 class="mark">林亞澤</h1>
     <div class="latin">YAZE&nbsp;&nbsp;LIN</div>
-    <p class="tag">從工廠自動化到 AI，我只做真的能用的東西，也把做法公開分享。</p>
+    <p class="tag">在 1984 年的自動化老廠裡，我把 AI 接上真實的設備、產線與業務系統，真的上線在跑——不是 demo。做法我也公開分享。</p>
     <p class="subtag"><span class="hl">免費</span> AI 實作營：MCP、LINE Bot、Agent、企業與工廠 AI、生圖 — 8 個我真的上線過的應用，做法寫成手冊，留個 Email 我寄給你。</p>
     <div class="hero-actions">
-      <a class="pri" href="#subscribe">免費領實作手冊 →</a>
+      <a class="pri" href="#subscribe">免費領手冊 →</a>
+      <a class="sec" href="#work">公司想導入 AI？找我合作 →</a>
       <a class="sec" href="#workshops">看 8 個模組 →</a>
     </div>
     <div class="hint">移動游標攪動 · 點擊潑灑</div>
@@ -804,6 +829,28 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
 
 <div class="scrollcue">往下捲<span>↓</span></div>
 <main id="content">
+  <section class="sec fit">
+    <p class="fit-hook reveal">你不是不會用 AI——是市面教的全是 <span class="hl">demo</span>，一接到真實的設備、資料、業務邏輯就垮。我做的，是<span class="hl">已經在產線與企業系統裡上線的那一段</span>。</p>
+    <div class="fit-cols">
+      <div class="fit-col reveal">
+        <div class="fit-h fit-yes">這個站適合你，如果</div>
+        <ul>
+          <li>工廠／產線／公司想把設備資料、產線狀態、業務流程接上 AI，卻被 demo 等級的東西卡住</li>
+          <li>想培養自家工程團隊的 AI 能力，不想長期外包、也不想被綁死在某家雲端服務</li>
+        </ul>
+      </div>
+      <div class="fit-col reveal">
+        <div class="fit-h fit-no">先不用看，如果你</div>
+        <ul>
+          <li>想學「個人品牌變現／做網紅」——這裡沒有，你會找錯地方</li>
+          <li>只要一張能跑的 demo 截圖，不打算真的接到設備與業務邏輯</li>
+          <li>想找人「做完就跑、之後不維護」——我帶你的人一起做，能力要留在你公司</li>
+        </ul>
+      </div>
+    </div>
+    <p class="fit-foot reveal">還在純好奇、沒有具體想解的問題？先從下面的 <a href="#subscribe">免費手冊</a> 開始，真的卡到再找我。</p>
+  </section>
+
   <section class="sec">
     <div class="sec-label reveal">About · 關於我</div>
     <h2 class="sec-h reveal">樂於分享</h2>
