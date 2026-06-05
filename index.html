@@ -273,6 +273,17 @@
     body[data-theme="light"] .svc-fit{ color:rgba(58,82,104,.62); }
     body[data-theme="light"] .work .cta{ background:#234e70; color:#eef4f9; box-shadow:0 4px 14px rgba(34,78,112,.24); }
 
+    /* 無障礙：鍵盤焦點框 */
+    :focus-visible{ outline-offset:3px; border-radius:3px; }
+    body[data-theme="dark"]  :focus-visible{ outline:2px solid #e2796d; }
+    body[data-theme="light"] :focus-visible{ outline:2px solid #225378; }
+    /* 無障礙：尊重「減少動態」— 關掉進場/循環 CSS 動畫並保留最終可見狀態（canvas 三層由 JS 端跳過） */
+    @media (prefers-reduced-motion: reduce){
+      *, *::before, *::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+      html{ scroll-behavior:auto !important; }
+      .reveal{ opacity:1 !important; transform:none !important; }
+    }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -317,8 +328,12 @@ function THEME(){ return document.body.dataset.theme || 'dark'; }
 // 無風（移除環境風，只留飄移淡霧 + 滑鼠互動）
 window.__windMul = 0;
 
+// 尊重使用者的「減少動態」系統設定：跳過三層 canvas 動畫，名字退回靜態漸層字（無 WebGL 的同一條 fallback）
+const REDUCED_MOTION = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
 // ═══ LAYER 2：字符網格（數位基質，極淡）═══
 (function CharLayer() {
+  if (REDUCED_MOTION) return;
   const canvas = document.getElementById('charCanvas');
   const ctx    = canvas.getContext('2d');
   const CHARS  = ['Y','A','Z','E','L','I','N','0','1','/','·'];
@@ -353,6 +368,7 @@ window.__windMul = 0;
 
 // ═══ 餘燼粒子：極淡塵光緩緩上升（additive）═══
 (function Embers(){
+  if (REDUCED_MOTION) return;
   const c=document.getElementById('emberCanvas'), x=c.getContext('2d');
   let W,H,P=[]; const DPR=Math.min(window.devicePixelRatio||1,2);
   function spawn(){ return {x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*0.18*DPR,vy:-(0.08+Math.random()*0.26)*DPR,r:(0.6+Math.random()*1.5)*DPR,life:Math.random()*400,max:340+Math.random()*520,ph:Math.random()*6.28}; }
@@ -374,6 +390,7 @@ window.__windMul = 0;
 
 // ═══ LAYER 3：WebGL 流體（Navier-Stokes）═══
 (function FluidLayer() {
+  if (REDUCED_MOTION) return;   // 不初始化流體 → 不加 .fluid-on → 名字維持靜態漸層字
   const CFG = { SIM_RES:128, DYE_RES:1440, DENSITY_DISS:1.5, VEL_DISS:1.9,
     PRESSURE:0.1, PRESSURE_ITER:20, CURL:2.0, SPLAT_RADIUS:0.25, SPLAT_FORCE:7000, COLOR_SPEED:5 };
   const canvas = document.getElementById('fluidCanvas');
