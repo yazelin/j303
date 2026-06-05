@@ -256,6 +256,20 @@
     body[data-theme="light"] .scrollcue{ color:rgba(30,46,64,.5); }
     body[data-theme="light"] .sub .cta{ background:#234e70; color:#eef4f9; }
 
+    /* Work with me · 顧問區 */
+    .svc-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,260px),1fr)); gap:18px; margin-top:2.4rem; }
+    .svc .bd{ display:flex; flex-direction:column; height:100%; }
+    .svc-fit{ margin-top:auto; padding-top:16px; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.68rem; letter-spacing:.05em; }
+    .work-cta{ text-align:center; margin-top:2.8rem; }
+    .work .cta{ display:inline-block; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.82rem; letter-spacing:.14em;
+      text-transform:uppercase; border-radius:999px; padding:.85rem 1.85rem; text-decoration:none; transition:transform .25s, filter .25s; }
+    .work .cta:hover{ transform:translateY(-2px); filter:brightness(1.12); }
+    .work-proof{ text-align:center; margin-top:1.8rem; font-size:.9rem; line-height:1.9; opacity:.85; }
+    body[data-theme="dark"]  .svc-fit{ color:rgba(206,192,168,.6); }
+    body[data-theme="dark"]  .work .cta{ background:#bb352b; color:#f6efe2; box-shadow:0 5px 20px rgba(187,53,43,.3); }
+    body[data-theme="light"] .svc-fit{ color:rgba(58,82,104,.62); }
+    body[data-theme="light"] .work .cta{ background:#234e70; color:#eef4f9; box-shadow:0 4px 14px rgba(34,78,112,.24); }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -646,6 +660,36 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
       <div class="row reveal"><h4>Mori Desktop</h4><p>我自己在做的個人 AI 管家(電腦桌面軟體)。架構正在跟下面的 AgentOS 整合，還在開發中:<a href="https://github.com/yazelin/mori-desktop">github.com/yazelin/mori-desktop</a></p></div>
       <div class="row reveal"><h4>AgentOS</h4><p>讓不同 AI 工具能被統一管理的平台(開發中)。</p></div>
     </div>
+  </section>
+
+  <section class="sec work" id="work">
+    <div class="sec-label reveal">Work with me · 找我合作</div>
+    <h2 class="sec-h reveal">把這些帶進你的公司</h2>
+    <p class="about-lead reveal">上面這些不只是 demo，是我在 <strong>擎添工業</strong>(1984 年成立的自動化老廠)真的上線、真的在跑的東西。如果你的公司或產線想導入 AI，但不知道從哪開始、或不想被綁死在某家雲端服務，可以找我聊聊。</p>
+    <p class="about-body reveal">我不是只會寫 AI demo 的人。我在做機械手臂、無人搬運車、產線整合的工廠裡寫 AI——AI 是疊在真實設備、真實產線上的，所以我懂你車間裡那些<span class="hl">「理論上可行、現場就是不行」</span>的坑。</p>
+    <div class="svc-grid">
+      <article class="card svc reveal"><div class="bd">
+        <h3>工廠／產線 AI 數位化</h3>
+        <p>把設備資料(MQTT／PLC)接上即時看板與 LLM 自動班報，從一條線試點開始，做出來就能複製到其他產線。</p>
+        <div class="svc-fit">適合 工廠、產線想數位化，但 IT 人力有限的團隊</div>
+      </div></article>
+      <article class="card svc reveal"><div class="bd">
+        <h3>公司知識庫 AI 助理</h3>
+        <p>把散在資料夾的文件、報價、SOP 變成「直接問就有答案」，可接 LINE，員工在群組就能用，資料留在公司內、不外送雲端。</p>
+        <div class="svc-fit">適合 文件多、員工常常在翻檔找答案的公司</div>
+      </div></article>
+      <article class="card svc reveal"><div class="bd">
+        <h3>AI 導入陪跑／內訓</h3>
+        <p>不接手整套系統也行——我帶你的工程師用我公開的這套做法自己長出能力，從評估、原型到上線陪你走一遍。</p>
+        <div class="svc-fit">適合 想培養自家 AI 能力、不想長期外包的團隊</div>
+      </div></article>
+    </div>
+    <div class="work-cta reveal">
+      <a class="cta" href="mailto:yazelin@ching-tech.com?subject=AI%20導入諮詢">聊聊你的導入需求 →</a>
+    </div>
+    <p class="about-body reveal" style="text-align:center;font-size:.92rem;margin-top:1.1rem">或直接來信 <a href="mailto:yazelin@ching-tech.com">yazelin@ching-tech.com</a>，講你現在卡在哪。</p>
+    <p class="about-body reveal work-proof">擎添工業現役工程師 · 機械手臂／AGV／產線整合實戰 · 程式碼全部公開在 <a href="https://github.com/yazelin" target="_blank" rel="noopener">GitHub @yazelin</a> · CTOS 企業平台已上線(<a href="https://ching-tech.com" target="_blank" rel="noopener">ching-tech.com</a>) · CT JINN LINE 助理(<a href="https://line.me/R/ti/p/@285fjkky" target="_blank" rel="noopener">@285fjkky</a>)</p>
+    <p class="about-body reveal" style="text-align:center;opacity:.8">還沒準備好導入？<a href="#subscribe">先留個 Email</a>，看我怎麼一步步做，準備好再找我。</p>
   </section>
 
   <section class="sec sub" id="subscribe">
