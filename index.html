@@ -479,6 +479,14 @@
     body[data-theme="light"] .fit-foot{ color:#41505d; }
     body[data-theme="light"] .fit-foot a{ color:#225378; border-bottom-color:rgba(34,83,120,.32); }
 
+    /* 結果化標題的技術副名 + 成品承諾行(M5/M6) */
+    .card h3 .tech{ display:block; margin-top:6px; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.64rem; font-weight:400; letter-spacing:.14em; text-transform:uppercase; }
+    .card .outcome{ margin-top:12px; font-family:'Noto Serif TC',serif; font-weight:500; font-size:.92rem; line-height:1.7; }
+    body[data-theme="dark"]  .card h3 .tech{ color:rgba(206,192,168,.55); }
+    body[data-theme="dark"]  .card .outcome{ color:#d9ab57; }
+    body[data-theme="light"] .card h3 .tech{ color:rgba(58,82,104,.55); }
+    body[data-theme="light"] .card .outcome{ color:#2f8c79; }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -876,8 +884,8 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
     </div>
     <div class="cat-block"><div class="cat-h reveal">系列三 · 企業與工廠<span style="font-weight:300;letter-spacing:.02em;opacity:.72">　·　把 AI 裝進公司文件與工廠產線</span></div>
       <div class="courses-grid">
-        <article class="card reveal"><img class="ban" src="https://yazelin.github.io/company-ai-assistant-template/assets/banner.svg" alt="企業 AI 助理 banner" loading="lazy"><div class="bd"><h3>企業 AI 助理</h3><div class="en">Module 1 · Retrieval</div><div class="meta"><span class="lvl">中階</span><span class="who">適合 想把公司文件變成隨問隨答</span></div><p>Part 1 <span class="hl">關鍵字計次</span>檢索（換句話說就找不到）→ Part 2 換 <span class="hl">語意檢索</span>（fastembed 向量），同樣的介面與回答層。</p><div class="lk"><a href="https://yazelin.github.io/company-ai-assistant-template/tutorial.html">看做法 →</a><a class="ghost" href="https://github.com/yazelin/company-ai-assistant-template">GitHub 模板</a><a class="ghost" href="https://yazelin.github.io/company-ai-assistant-template/#waitlist">下載手冊</a><a class="ghost" href="https://github.com/yazelin/ching-tech-os" target="_blank" rel="noopener">真實案例：ching-tech-os 企業 OS →</a></div></div></article>
-        <article class="card reveal"><img class="ban" src="https://yazelin.github.io/industrial-ai-dashboard-starter/assets/banner.svg" alt="工業 AI Dashboard banner" loading="lazy"><div class="bd"><h3>工業 AI Dashboard</h3><div class="en">Module 2 · Real World</div><div class="meta"><span class="lvl">中階</span><span class="who">適合 工廠、產線想數位化</span></div><p>Part 1 <span class="hl">模擬資料</span>的玩具看板 + 樣板摘要 → Part 2 接<span class="hl">真實 MQTT 設備資料</span> + <span class="hl">LLM 班報</span>，前端與 API 一行都不用改。</p><div class="lk"><a href="https://yazelin.github.io/industrial-ai-dashboard-starter/tutorial.html">看做法 →</a><a class="ghost" href="https://github.com/yazelin/industrial-ai-dashboard-starter">GitHub 模板</a><a class="ghost" href="https://yazelin.github.io/industrial-ai-dashboard-starter/#waitlist">下載手冊</a></div></div></article>
+        <article class="card reveal"><img class="ban" src="https://yazelin.github.io/company-ai-assistant-template/assets/banner.svg" alt="企業 AI 助理 banner" loading="lazy"><div class="bd"><h3>把公司十年的文件，變成隨問隨答的內部知識庫<span class="tech">企業 AI 助理 · RAG</span></h3><div class="en">Module 1 · Retrieval</div><div class="meta"><span class="lvl">中階</span><span class="who">適合 卡在「資深員工一退休，know-how 就跟著消失」的公司——市面的 RAG demo 一接到你真實又亂的文件就找不到答案</span></div><p>Part 1 <span class="hl">關鍵字計次</span>檢索（換句話說就找不到）→ Part 2 換 <span class="hl">語意檢索</span>（fastembed 向量），同樣的介面與回答層。</p><div class="outcome">做完你會有：一個能讀你自己 PDF／Word、答得出處、答錯能查的內部問答原型。</div><div class="lk"><a href="https://yazelin.github.io/company-ai-assistant-template/tutorial.html">看做法 →</a><a class="ghost" href="https://github.com/yazelin/company-ai-assistant-template">GitHub 模板</a><a class="ghost" href="https://yazelin.github.io/company-ai-assistant-template/#waitlist">下載手冊</a><a class="ghost" href="https://github.com/yazelin/ching-tech-os" target="_blank" rel="noopener">真實案例：ching-tech-os 企業 OS →</a></div></div></article>
+        <article class="card reveal"><img class="ban" src="https://yazelin.github.io/industrial-ai-dashboard-starter/assets/banner.svg" alt="工業 AI Dashboard banner" loading="lazy"><div class="bd"><h3>讓產線數字自己跑出來，沒人要再手抄白板<span class="tech">工業 AI Dashboard · MQTT + LLM 班報</span></h3><div class="en">Module 2 · Real World</div><div class="meta"><span class="lvl">中階</span><span class="who">適合 還在用白板／Excel 抄機台數字、班長下班前手打日報的工廠主管——這門接的是真實 MQTT 設備資料，不是模擬假數據的玩具看板</span></div><p>Part 1 <span class="hl">模擬資料</span>的玩具看板 + 樣板摘要 → Part 2 接<span class="hl">真實 MQTT 設備資料</span> + <span class="hl">LLM 班報</span>，前端與 API 一行都不用改。</p><div class="outcome">做完你會有：一個接得上真設備、會自動生班報的即時產線看板雛形。</div><div class="lk"><a href="https://yazelin.github.io/industrial-ai-dashboard-starter/tutorial.html">看做法 →</a><a class="ghost" href="https://github.com/yazelin/industrial-ai-dashboard-starter">GitHub 模板</a><a class="ghost" href="https://yazelin.github.io/industrial-ai-dashboard-starter/#waitlist">下載手冊</a></div></div></article>
       </div>
     </div>
     <div class="cat-block"><div class="cat-h reveal">系列四 · 繪圖魔法師<span style="font-weight:300;letter-spacing:.02em;opacity:.72">　·　用 LLM 生圖，從一句話 prompt 到做成產品</span></div>
