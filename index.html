@@ -567,6 +567,21 @@
     body[data-theme="light"] .faq-q{ color:#1a2228; }
     body[data-theme="light"] .faq-a{ color:#4a5862; }
 
+    /* Sprint 區 */
+    .sprint-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:18px; max-width:920px; margin:2.4rem auto 0; }
+    .sprint .card .en{ margin-bottom:6px; }
+    .sprint-meta{ max-width:760px; margin:2rem auto 0; }
+    .sprint-row{ display:flex; gap:18px; padding:14px 0; border-top:1px solid; align-items:baseline; }
+    .sprint-row:first-child{ border-top:none; }
+    .sprint-k{ flex:0 0 84px; font-family:'Space Grotesk',ui-monospace,monospace; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; padding-top:3px; }
+    .sprint-row span:last-child{ font-family:'Noto Serif TC',serif; font-weight:300; font-size:.97rem; line-height:1.8; }
+    body[data-theme="dark"]  .sprint-row{ border-color:rgba(236,230,218,.1); }
+    body[data-theme="dark"]  .sprint-k{ color:#d9ab57; }
+    body[data-theme="dark"]  .sprint-row span:last-child{ color:#c7bfb0; }
+    body[data-theme="light"] .sprint-row{ border-color:rgba(0,0,0,.1); }
+    body[data-theme="light"] .sprint-k{ color:#2f8c79; }
+    body[data-theme="light"] .sprint-row span:last-child{ color:#41505d; }
+
   </style>
 </head>
 <body data-theme="dark">
@@ -989,6 +1004,27 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
     <p class="prod-wip reveal"><span class="prod-group">正在打造中</span>另有個人 AI 管家 <a href="https://github.com/yazelin/mori-desktop">Mori Desktop</a>、與統一管理各家 AI 工具的 AgentOS——還在開發中，有興趣可看 GitHub。</p>
   </section>
 
+  <section class="sec sprint work" id="sprint">
+    <div class="sec-label reveal">Sprint · 兩週導入</div>
+    <h2 class="sec-h reveal">兩週導入 Sprint</h2>
+    <p class="about-lead reveal">先用<span class="hl">一條線、一份文件</span>，做出你公司能用的第一個 AI 應用。不是上課、不是顧問鐘點——我帶擎添團隊，用我們真的上過線的這套做法，兩週內把一個真實場景跑到「能在你公司內部 demo」的程度。</p>
+    <div class="sprint-grid">
+      <article class="card reveal"><div class="bd"><div class="en">Option A</div><h3>產線版</h3><p>把你<strong>一條線</strong>的設備資料（MQTT／PLC）接上即時看板 + 一份 LLM 自動班報，跑在你公司內網。</p></div></article>
+      <article class="card reveal"><div class="bd"><div class="en">Option B</div><h3>知識庫版</h3><p>把你<strong>一批文件</strong>（SOP／報價／規格）做成「直接問就有答案」的內部助理，可接 LINE，資料不外送雲端。</p></div></article>
+    </div>
+    <div class="sprint-meta reveal">
+      <div class="sprint-row"><span class="sprint-k">交付給你</span><span>可運行的原型（原始碼留給你）+ 怎麼接下一條線／下一批文件的說明 + 兩次線上同步。你的工程師全程在場一起做，能力留在你公司。</span></div>
+      <div class="sprint-row"><span class="sprint-k">資料</span><span>留在你公司內網、不外送雲端，可簽 NDA。</span></div>
+      <div class="sprint-row"><span class="sprint-k">收費</span><span>固定範圍、固定價、專案制（不是鐘點、不是課程費）。<span class="hl">做不出來，尾款不收。</span></span></div>
+    </div>
+    <p class="about-body reveal" style="text-align:center">適合<strong>已經有一個明確場景</strong>（某條產線的數據、某批文件）、想先小範圍驗證再決定要不要全面導入的公司。還在「想了解一下」、手上沒有具體資料的，先<a href="#subscribe">下載 8 套免費手冊</a>比較划算。</p>
+    <div class="work-cta reveal">
+      <a class="cta cta-2" href="mailto:yazelin@ching-tech.com?subject=兩週導入%20Sprint%20諮詢">看你的場景適不適合 Sprint →</a>
+    </div>
+    <p class="work-reassure reveal">留下你的場景，我們會跟你聯絡、報給你範圍與報價。第一次聊不收費。</p>
+    <p class="about-body reveal" style="text-align:center;opacity:.8">Sprint 驗證可行之後，要把這套能力長期接進公司、從一條線複製到整廠——<a href="#work">看「把這些帶進你的公司」</a>。</p>
+  </section>
+
   <section class="sec work" id="work">
     <div class="sec-label reveal">Work with me · 找我合作</div>
     <h2 class="sec-h reveal">把這些帶進你的公司</h2>
@@ -1007,7 +1043,7 @@ void main(){ float a=texture2D(uStamp, vec2(vUv.x, 1.0-vUv.y)).a; gl_FragColor=v
       </div></article>
       <article class="card svc reveal"><div class="bd">
         <h3>AI 導入陪跑／內訓</h3>
-        <p>不接手整套系統也行——我們帶你的工程師，用我公開的這套做法自己長出能力，從評估、原型到上線陪你走一遍。</p>
+        <p>Sprint 驗證可行後，把這套能力長期接進公司——我們帶你的工程師，從評估、原型到上線，從一條線複製到整廠／整個部門。</p>
         <div class="svc-fit">適合 想培養自家 AI 能力、不想長期外包的團隊</div>
       </div></article>
     </div>
